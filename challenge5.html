@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<link rel="stylesheet" href="style.css">
+<title>Title</title>
+</head>
+<body>
+    <div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product Code</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" data-column="code">1001</td>
+                <td data-column="description">Yealink T10</td>
+                <td data-column="price">79.99</td>
+                <td data-column="action"><button value="1001" class="btn btn-success">Add to Basket</button></td>
+            </tr>
+            <tr>
+                <td scope="row" data-column="code">1001</td>
+                <td data-column="description">Yealink T20</td>
+                <td data-column="price">109.99</td>
+                <td data-column="action"><button  value="1002" class="btn btn-success">Add to Basket</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
+    $(function() {
+       
+        $('.btn-success').click(function (e) { 
+            e.preventDefault();
+            var table = $(this).closest('.table tbody tr');
+           var description =  table.find('td:nth-child(2)').text();
+           var price =  table.find('td:nth-child(3)').text();
+           console.log(description );
+            alert('product Description: '+ description+ "\n------------------------\n "+ 'Price £'+price)
+        });
+    })
+    </script>
+</body>
+</html>
